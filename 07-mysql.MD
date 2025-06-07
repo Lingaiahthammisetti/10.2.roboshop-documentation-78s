@@ -6,7 +6,7 @@ Developer has chosen the database MySQL. Hence, we are trying to install it up a
 **Developer has shared the version information as MySQL-8.x**
 
 
-**You can list MySQL servers by using `dnf list mysql-server`**
+You can list MySQL servers by using `dnf list mysql-server`
 ```
 dnf list mysql-server
 ```
