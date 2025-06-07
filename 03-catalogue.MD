@@ -51,6 +51,14 @@ cd /app
 ```
 unzip /tmp/catalogue.zip
 ```
+```
+Note:
+unzip filename.zip
+This will extract all contents of filename.zip into the current working directory.
+Summary:
+The zip file is downloaded to /tmp, but its contents are extracted into /app, which is exactly what you want.
+This is a common approach: download to a temp location, then extract to the target location.
+```
 
 Every application is developed by development team will have some common softwares that they use as libraries. This application also have the same way of defined dependencies in the application configuration.
 
@@ -132,3 +140,32 @@ mongosh --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
 ```
 
 **NOTE: You need to update catalogue server ip address in frontend configuration. Configuration file is /etc/nginx/default.d/roboshop.conf**
+
+**Note:
+Linux/macOS (Terminal):
+unzip filename.zip
+This will extract all contents of filename.zip into the current working directory.
+
+To unzip into a specific directory:
+unzip filename.zip -d /expense/roboshop/catalogue/
+
+
+Create /app directory:
+mkdir /app
+
+Download application code:
+curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip
+This downloads the file to /tmp/catalogue.zip, not directly into /app.
+
+Navigate to /app:
+cd /app
+
+Unzip the downloaded file:
+unzip /tmp/catalogue.zip
+This extracts the contents of the zip file into the current directory, which is /app.
+
+Summary:
+The zip file is downloaded to /tmp, but its contents are extracted into /app, which is exactly what you want.
+This is a common approach: download to a temp location, then extract to the target location.
+
+**

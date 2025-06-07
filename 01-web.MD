@@ -43,6 +43,23 @@ cd /usr/share/nginx/html
 unzip /tmp/web.zip
 ```
 
+```
+Download the zip file to /tmp
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+This downloads the web.zip file from the given URL and saves it in the /tmp directory.
+You are not downloading it into /usr/share/nginx/html, but instead into the temporary directory.
+
+Navigate to the Nginx HTML directory
+cd /usr/share/nginx/html
+You move into the directory where the frontend content is supposed to be extracted.
+
+Extract the zip file from /tmp into the current directory
+unzip /tmp/web.zip
+This command extracts the contents of /tmp/web.zip into the current directory, which is now /usr/share/nginx/html.
+```
+
+
+
 Try to access the nginx service once more over the browser and ensure you get roboshop content.
 
 Create Nginx Reverse Proxy Configuration.
