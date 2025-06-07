@@ -1,8 +1,15 @@
-### MySQL
+# MySQL 
+
 Developer has chosen the database MySQL. Hence, we are trying to install it up and configure it.
 
-CentOS-8 Comes with MySQL 8 Version by default, However our application needs MySQL 5.7. So lets disable MySQL 8 version.
+**Versions of the DB Software you will get context from the developer, Meaning we need to check with developer.**
+**Developer has shared the version information as MySQL-8.x**
 
+
+**You can list MySQL servers by using `dnf list mysql-server`**
+```
+dnf list mysql-server
+```
 
 ```
 dnf install mysql-server -y
