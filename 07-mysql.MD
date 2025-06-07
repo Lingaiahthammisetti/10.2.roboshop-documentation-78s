@@ -10,7 +10,7 @@ Developer has chosen the database MySQL. Hence, we are trying to install it up a
 ```
 dnf list mysql-server
 ```
-
+Install MySQL Service
 ```
 dnf install mysql-server -y
 ```
@@ -34,4 +34,16 @@ You can check the new password working or not using the following command in MyS
 
 ```
 mysql -h mysql.lingaiah.online -uroot -pRoboShop@1
+```
+
+
+Note: How to differentiate MySQL server vs MySQL client
+This is the MySQL server
+```
+dnf install mysql-server -y
+```
+
+This is the MySQL client
+```
+dnf install mysql -y
 ```
