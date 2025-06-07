@@ -16,6 +16,11 @@ enabled=1
 gpgkey=https://pgp.mongodb.com/server-7.0.asc
 ```
 
+**You can list modules by using "dnf module list"**
+```
+dnf module list
+```
+
 Install MongoDB
 ```
 dnf install mongodb-org -y 

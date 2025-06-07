@@ -5,7 +5,12 @@ Developer has chosen NodeJs, Check with developer which version of NodeJS is nee
 
 Install NodeJS, By default NodeJS 10 is available, We would like to enable 18 version and install list.
 
-*you can list modules by using dnf module list*
+
+**You can list modules by using "dnf module list"**
+```
+dnf module list
+```
+
 
 ```
 dnf module disable nodejs -y
@@ -51,14 +56,15 @@ cd /app
 ```
 unzip /tmp/catalogue.zip
 ```
+
 ```
-Note:
 unzip filename.zip
 This will extract all contents of filename.zip into the current working directory.
 Summary:
 The zip file is downloaded to /tmp, but its contents are extracted into /app, which is exactly what you want.
 This is a common approach: download to a temp location, then extract to the target location.
 ```
+
 
 Every application is developed by development team will have some common softwares that they use as libraries. This application also have the same way of defined dependencies in the application configuration.
 
@@ -86,7 +92,7 @@ Description = Catalogue Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-Environment=MONGO_URL="mongodb://<MONGODB-SERVER-IPADDRESS>:27017/catalogue"
+Environment=MONGO_URL="mongodb://mongodb.lingaiah.online:27017/catalogue"
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=catalogue
 
@@ -136,10 +142,11 @@ dnf install -y mongodb-mongosh
 Load Schema
 
 ```
-mongosh --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+mongosh --host mongodb.lingaiah.online </app/schema/catalogue.js
 ```
 
 **NOTE: You need to update catalogue server ip address in frontend configuration. Configuration file is /etc/nginx/default.d/roboshop.conf**
+
 
 **Note:
 Linux/macOS (Terminal):

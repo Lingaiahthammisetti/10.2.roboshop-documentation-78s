@@ -70,8 +70,8 @@ Description = User Service
 [Service]
 User=roboshop
 Environment=MONGO=true
-Environment=REDIS_HOST=<REDIS-SERVER-IP>
-Environment=MONGO_URL="mongodb://<MONGODB-SERVER-IP-ADDRESS>:27017/users"
+Environment=REDIS_HOST=redis.lingaiah.online
+Environment=MONGO_URL="mongodb://mongodb.lingaiah.online:27017/users"
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=user
 
@@ -119,7 +119,7 @@ dnf install mongodb-mongosh -y
 Load Schema
 
 ```
-mongosh --host MONGODB-SERVER-IPADDRESS </app/schema/user.js
+mongosh --host mongodb.lingaiah.online </app/schema/user.js
 ```
 
 

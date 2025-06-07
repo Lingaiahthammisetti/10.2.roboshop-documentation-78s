@@ -69,8 +69,8 @@ vim /etc/systemd/system/cart.service
 Description = Cart Service
 [Service]
 User=roboshop
-Environment=REDIS_HOST=<REDIS-SERVER-IP>
-Environment=CATALOGUE_HOST=<CATALOGUE-SERVER-IP>
+Environment=REDIS_HOST=redis.lingaiah.online
+Environment=CATALOGUE_HOST=catalogue.lingaiah.online
 Environment=CATALOGUE_PORT=8080
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=cart

@@ -64,8 +64,8 @@ Description=Shipping Service
 
 [Service]
 User=roboshop
-Environment=CART_ENDPOINT=<CART-SERVER-IPADDRESS>:8080
-Environment=DB_HOST=<MYSQL-SERVER-IPADDRESS>
+Environment=CART_ENDPOINT=cart.lingaiah.online:8080
+Environment=DB_HOST=mysql.lingaiah.online
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 
@@ -101,15 +101,17 @@ dnf install mysql -y
 Load Schema
 
 ```
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/schema.sql
-```
-```
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/app-user.sql 
-```
-```
-mysql -h <MYSQL-SERVER-IPADDRESS> -uroot -pRoboShop@1 < /app/db/master-data.sql
-```
+mysql -h mysql.lingaiah.online -uroot -pRoboShop@1 < /app/db/schema.sql
 
+```
+```
+mysql -h mysql.lingaiah.online -uroot -pRoboShop@1 < /app/db/app-user.sql
+
+```
+```
+mysql -h mysql.lingaiah.online -uroot -pRoboShop@1 < /app/db/master-data.sql
+
+```
 This service needs a restart because it is dependent on schema, After loading schema only it will work as expected, Hence we are restarting this service. This
 
 ```

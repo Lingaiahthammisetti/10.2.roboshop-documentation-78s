@@ -63,11 +63,11 @@ Description=Payment Service
 [Service]
 User=root
 WorkingDirectory=/app
-Environment=CART_HOST=<CART-SERVER-IPADDRESS>
+Environment=CART_HOST=cart.lingaiah.online
 Environment=CART_PORT=8080
-Environment=USER_HOST=<USER-SERVER-IPADDRESS>
+Environment=USER_HOST=user.lingaiah.online
 Environment=USER_PORT=8080
-Environment=AMQP_HOST=<RABBITMQ-SERVER-IPADDRESS>
+Environment=AMQP_HOST=rabbitmq.lingaiah.online
 Environment=AMQP_USER=roboshop
 Environment=AMQP_PASS=roboshop123
 
