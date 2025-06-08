@@ -91,21 +91,26 @@ systemctl restart nginx
 # Trouble shoot commands:
 
 🌐 Check if Nginx is listening on port 80
+```
 netstat -lntp | grep :80
-This checks if any service (typically Nginx) is listening on port 80, which is used for HTTP traffic.
+```
 
 📡 Test connectivity to the Nginx server on port 80
+```
 telnet lingaiah.online 80
-This tests whether your system can connect to the Nginx server via HTTP (port 80). If successful, it indicates that the server is reachable and Nginx is accepting connections.
+```
 
 🔍 Check if Nginx process is running
+```
 ps -ef | grep nginx
-This lists all running Nginx processes, helping verify that the Nginx daemon is currently active.
+```
+
 
 🌍 Verify if Nginx server's IP address is reachable
+```
 ping -c 3 nginx.lingaiah.online
 
-
+```
 
 # Additional Information:
 
