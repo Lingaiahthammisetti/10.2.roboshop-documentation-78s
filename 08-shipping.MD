@@ -117,3 +117,36 @@ This service needs a restart because it is dependent on schema, After loading sc
 ```
 systemctl restart shipping
 ```
+
+
+
+# Trouble shoot commands:
+🌐 Check if shipping service is running
+```
+sudo systemctl status shipping
+
+```
+
+🌐 Check if shipping is listening on port 8080
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 8080
+```
+
+📡 Test connectivity to the shipping server on port 8080
+```
+telnet shipping.lingaiah.online 8080
+```
+
+🔍 Check if shipping process is running
+```
+ps -ef | grep shipping
+```
+
+
+🌍 Verify if shipping server's IP address is reachable
+```
+ping -c 3 shipping.lingaiah.online
+
+````
+

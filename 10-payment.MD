@@ -94,3 +94,33 @@ systemctl enable payment
 ```
 systemctl start payment
 ```
+
+# Trouble shoot commands:
+🌐 Check if payment  service is running
+```
+sudo systemctl status payment 
+
+```
+
+🌐 Check if payment  is listening on port 8080
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 8080
+```
+
+📡 Test connectivity to the payment  server on port 8080
+```
+telnet payment.lingaiah.online 8080
+```
+
+🔍 Check if payment  process is running
+```
+ps -ef | grep payment 
+```
+
+
+🌍 Verify if payment server's IP address is reachable
+```
+ping -c 3 payment.lingaiah.online
+
+````

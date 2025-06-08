@@ -56,16 +56,6 @@ cd /app
 ```
 unzip /tmp/catalogue.zip
 ```
-
-```
-unzip filename.zip
-This will extract all contents of filename.zip into the current working directory.
-Summary:
-The zip file is downloaded to /tmp, but its contents are extracted into /app, which is exactly what you want.
-This is a common approach: download to a temp location, then extract to the target location.
-```
-
-
 Every application is developed by development team will have some common softwares that they use as libraries. This application also have the same way of defined dependencies in the application configuration.
 
 Lets download the dependencies.
@@ -148,6 +138,36 @@ mongosh --host mongodb.lingaiah.online </app/schema/catalogue.js
 **NOTE: You need to update catalogue server ip address in frontend configuration. Configuration file is /etc/nginx/default.d/roboshop.conf**
 
 
+# Trouble shoot commands:
+🌐 Check if Catalogue service is running
+```
+sudo systemctl status catalogue
+
+```
+
+🌐 Check if Catalogue is listening on port 8080
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 8080
+```
+
+📡 Test connectivity to the Catalogue server on port 8080
+```
+telnet catalogue.lingaiah.online 8080
+```
+
+🔍 Check if Catalogue process is running
+```
+ps -ef | grep catalogue
+```
+
+
+🌍 Verify if Catalogue server's IP address is reachable
+```
+ping -c 3 catalogue.lingaiah.online
+
+````
+
 **Note:
 Linux/macOS (Terminal):
 unzip filename.zip
@@ -170,6 +190,13 @@ cd /app
 Unzip the downloaded file:
 unzip /tmp/catalogue.zip
 This extracts the contents of the zip file into the current directory, which is /app.
+
+
+unzip filename.zip
+This will extract all contents of filename.zip into the current working directory.
+Summary:
+The zip file is downloaded to /tmp, but its contents are extracted into /app, which is exactly what you want.
+This is a common approach: download to a temp location, then extract to the target location.
 
 Summary:
 The zip file is downloaded to /tmp, but its contents are extracted into /app, which is exactly what you want.

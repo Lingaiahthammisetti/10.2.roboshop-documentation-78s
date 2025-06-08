@@ -91,3 +91,37 @@ systemctl enable cart
 ```
 systemctl start cart
 ```
+
+
+
+# Trouble shoot commands:
+🌐 Check if Cart service is running
+```
+sudo systemctl status cart
+
+```
+
+🌐 Check if Cart is listening on port 8080
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 8080
+```
+
+📡 Test connectivity to the Cart server on port 8080
+```
+telnet cart.lingaiah.online 8080
+```
+
+🔍 Check if Cart process is running
+```
+ps -ef | grep cart
+```
+
+
+🌍 Verify if Cart server's IP address is reachable
+```
+ping -c 3 cart.lingaiah.online
+
+````
+
+

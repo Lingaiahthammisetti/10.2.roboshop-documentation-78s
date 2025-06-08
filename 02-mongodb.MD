@@ -56,13 +56,13 @@ sudo systemctl status mongod
 
 ```
 
-🌐 Check if MongoDB is listening on port 80
+🌐 Check if MongoDB is listening on port 27017
 ```
 sudo netstat -lntp
 sudo netstat -lntp | grep 27017
 ```
 
-📡 Test connectivity to the MongoDB server on port 80
+📡 Test connectivity to the MongoDB server on port 27017
 ```
 telnet mongodb.lingaiah.online 27017
 ```

@@ -56,4 +56,37 @@ dnf install mysql-server -y
 This is the MySQL client
 ```
 dnf install mysql -y
+
 ```
+
+
+
+# Trouble shoot commands:
+🌐 Check if mysql service is running
+```
+sudo systemctl status mysqld
+
+```
+
+🌐 Check if mysql is listening on port 3306
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 3306
+```
+
+📡 Test connectivity to the mysql server on port 3306
+```
+telnet mysql.lingaiah.online 3306
+```
+
+🔍 Check if mysql process is running
+```
+ps -ef | grep mysql
+```
+
+
+🌍 Verify if mysql server's IP address is reachable
+```
+ping -c 3 mysql.lingaiah.online
+
+````

@@ -38,3 +38,33 @@ rabbitmqctl add_user roboshop roboshop123
 ```
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 ```
+
+
+# Trouble shoot commands:
+🌐 Check if rabbitmq-server  service is running
+```
+sudo systemctl status rabbitmq-server
+
+```
+
+🌐 Check if rabbitmq-server is listening on port 5672
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 5672
+```
+
+📡 Test connectivity to the rabbitmq-server server on port 5672
+```
+telnet rabbitmq.lingaiah.online 5672
+```
+
+🔍 Check if rabbitmq-server process is running
+```
+ps -ef | grep rabbitmq-server 
+```
+
+🌍 Verify if rabbitmq-server server's IP address is reachable
+```
+ping -c 3 rabbitmq.lingaiah.online
+
+````

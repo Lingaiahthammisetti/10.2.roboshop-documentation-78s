@@ -123,3 +123,33 @@ mongosh --host mongodb.lingaiah.online </app/schema/user.js
 ```
 
 
+# Trouble shoot commands:
+🌐 Check if User service is running
+```
+sudo systemctl status user
+
+```
+
+🌐 Check if User is listening on port 8080
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 8080
+```
+
+📡 Test connectivity to the User server on port 8080
+```
+telnet user.lingaiah.online 8080
+```
+
+🔍 Check if User process is running
+```
+ps -ef | grep user
+```
+
+
+🌍 Verify if User server's IP address is reachable
+```
+ping -c 3 user.lingaiah.online
+
+````
+
