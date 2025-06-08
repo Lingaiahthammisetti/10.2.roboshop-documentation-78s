@@ -27,7 +27,10 @@ Try to access the service once over the browser and ensure you get some default 
 ```
 http://frontend.lingaiah.online:80
 ```
-
+OR
+```
+http://lingaiah.online:80
+```
 Remove the default content that web server is serving. 
 
 ```
@@ -49,33 +52,11 @@ cd /usr/share/nginx/html
 unzip /tmp/web.zip
 ```
 
-```
-Download the zip file to /tmp
-curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
-This downloads the web.zip file from the given URL and saves it in the /tmp directory.
-You are not downloading it into /usr/share/nginx/html, but instead into the temporary directory.
-
-Navigate to the Nginx HTML directory
-cd /usr/share/nginx/html
-You move into the directory where the frontend content is supposed to be extracted.
-
-Extract the zip file from /tmp into the current directory
-unzip /tmp/web.zip
-This command extracts the contents of /tmp/web.zip into the current directory, which is now /usr/share/nginx/html.
-```
-
-
-
 Try to access the nginx service once more over the browser and ensure you get roboshop content.
 
-Create Nginx Reverse Proxy Configuration.
+Create Nginx Reverse Proxy Configuration and Add the following content.
 
 ``` 
-vim /etc/nginx/default.d/roboshop.conf 
-```
-
-Add the following content 
-```
 vim /etc/nginx/default.d/roboshop.conf 
 ```
 
@@ -86,11 +67,11 @@ location /images/ {
   root   /usr/share/nginx/html;
   try_files $uri /images/placeholder.jpg;
 }
-location /api/catalogue/ { proxy_pass http://localhost:8080/; }
-location /api/user/ { proxy_pass http://localhost:8080/; }
-location /api/cart/ { proxy_pass http://localhost:8080/; }
-location /api/shipping/ { proxy_pass http://localhost:8080/; }
-location /api/payment/ { proxy_pass http://localhost:8080/; }
+location /api/catalogue/ { proxy_pass http://catalogue.lingaiah.online:8080/; }
+location /api/user/ { proxy_pass http://user.lingaiah.online:8080/; }
+location /api/cart/ { proxy_pass http://cart.lingaiah.online:8080/; }
+location /api/shipping/ { proxy_pass http://shipping.lingaiah.online:8080/; }
+location /api/payment/ { proxy_pass http://payment.lingaiah.online:8080/; }
 
 location /health {
   stub_status on;
@@ -104,4 +85,41 @@ Restart Nginx Service to load the changes of the configuration.
 
 ``` 
 systemctl restart nginx 
+
+```
+
+# Trouble shoot commands:
+
+🌐 Check if Nginx is listening on port 80
+netstat -lntp | grep :80
+This checks if any service (typically Nginx) is listening on port 80, which is used for HTTP traffic.
+
+📡 Test connectivity to the Nginx server on port 80
+telnet lingaiah.online 80
+This tests whether your system can connect to the Nginx server via HTTP (port 80). If successful, it indicates that the server is reachable and Nginx is accepting connections.
+
+🔍 Check if Nginx process is running
+ps -ef | grep nginx
+This lists all running Nginx processes, helping verify that the Nginx daemon is currently active.
+
+🌍 Verify if Nginx server's IP address is reachable
+ping -c 3 nginx.lingaiah.online
+
+
+
+# Additional Information:
+
+```
+Download the zip file to /tmp
+curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip
+This downloads the web.zip file from the given URL and saves it in the /tmp directory.
+You are not downloading it into /usr/share/nginx/html, but instead into the temporary directory.
+
+Navigate to the Nginx HTML directory
+cd /usr/share/nginx/html
+You move into the directory where the frontend content is supposed to be extracted.
+
+Extract the zip file from /tmp into the current directory
+unzip /tmp/web.zip
+This command extracts the contents of /tmp/web.zip into the current directory, which is now /usr/share/nginx/html.
 ```
