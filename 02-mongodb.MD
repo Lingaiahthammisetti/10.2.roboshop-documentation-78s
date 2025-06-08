@@ -48,3 +48,33 @@ Restart the service
 ```
 systemctl restart mongod
 ```
+
+# Trouble shoot commands:
+🌐 Check if MongoDB service is running
+```
+sudo systemctl status mongod
+
+```
+
+🌐 Check if MongoDB is listening on port 80
+```
+sudo netstat -lntp
+sudo netstat -lntp | grep 27017
+```
+
+📡 Test connectivity to the MongoDB server on port 80
+```
+telnet mongodb.lingaiah.online 27017
+```
+
+🔍 Check if MongoDB process is running
+```
+ps -ef | grep mongod
+```
+
+
+🌍 Verify if MongoDB server's IP address is reachable
+```
+ping -c 3 mongodb.lingaiah.online
+
+````

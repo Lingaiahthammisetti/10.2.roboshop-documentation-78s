@@ -89,10 +89,16 @@ systemctl restart nginx
 ```
 
 # Trouble shoot commands:
+🌐 Check if Nginx service is running
+```
+sudo systemctl status nginx
+
+```
 
 🌐 Check if Nginx is listening on port 80
 ```
-netstat -lntp | grep :80
+sudo netstat -lntp
+sudo netstat -lntp | grep 80
 ```
 
 📡 Test connectivity to the Nginx server on port 80
@@ -108,7 +114,7 @@ ps -ef | grep nginx
 
 🌍 Verify if Nginx server's IP address is reachable
 ```
-ping -c 3 nginx.lingaiah.online
+ping -c 3 web.lingaiah.online
 
 ```
 
