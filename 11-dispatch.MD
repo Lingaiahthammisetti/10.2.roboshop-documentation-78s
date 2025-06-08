@@ -90,7 +90,7 @@ sudo systemctl status dispatch
 sudo netstat -lntp
 sudo netstat -lntp | grep 8080
 ```
-After starting the service, you can verify the port using:
+🌐 After starting the service, you can verify the port using:
 ```
 netstat -lntp | grep dispatch
 ```
