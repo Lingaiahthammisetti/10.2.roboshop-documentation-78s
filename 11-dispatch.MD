@@ -76,30 +76,11 @@ systemctl enable dispatch
 systemctl start dispatch
 ```
 
-
-
 # Trouble shoot commands:
 🌐 Check if dispatch  service is running
 ```
 sudo systemctl status dispatch
-
 ```
-
-🌐 Check if dispatch is listening on port 8080
-```
-sudo netstat -lntp
-sudo netstat -lntp | grep 8080
-```
-🌐 After starting the service, you can verify the port using:
-```
-netstat -lntp | grep dispatch
-```
-
-📡 Test connectivity to the dispatch server on port 8080
-```
-telnet dispatch.lingaiah.online 8080
-```
-
 🔍 Check if dispatch process is running
 ```
 ps -ef | grep dispatch
