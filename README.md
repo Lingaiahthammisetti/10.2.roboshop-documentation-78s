@@ -24,24 +24,23 @@ Below is the communication between components and dependency. This dependency co
 
 
 # component interaction each other:
-catalogue --> mongodb
-user    ---> redis
-user  -->   mongodb
+1. catalogue --> mongodb,
+2. user    ---> redis,
+3. user  -->   mongodb,
 
-cart  --> redis
-cart  --> catalogue
+4. cart  --> redis,
+5. cart  --> catalogue,
 
-shipping  -->MySQL
-shipping  --> cart
+6. shipping  -->MySQL,
+7. shipping  --> cart,
 
-payment   --> RabbitMQ
-payment   --> cart
-payment   --> user
+8. payment   --> RabbitMQ,
+9. payment   --> cart,
+10. payment   --> user,
 
-dispatch --> RabbitMQ
-
-frontend  --> catalogue
-frontend -->  user
-frontend  --> cart
-frontend --> shipping
-frontend ---> payment
+11. frontend  --> catalogue,
+12. frontend -->  user,
+13. frontend  --> cart,
+14. frontend --> shipping,
+15. frontend ---> payment,
+16. dispatch --> RabbitMQ
