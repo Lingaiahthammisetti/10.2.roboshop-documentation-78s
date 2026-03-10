@@ -136,7 +136,7 @@ ps -ef | grep shipping
 ```
 shipping is able to connect MySQL db:
 ```
-telnet db.lithesh.shop 3306
+telnet mysql.lithesh.shop 3306
 ```
 shipping is able to connect cart:
 ```
