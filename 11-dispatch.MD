@@ -85,7 +85,11 @@ sudo systemctl status dispatch
 ```
 ps -ef | grep dispatch
 ```
+Dispatch is able to connect Rabbitmq:
+```
+telnet rabbitmq.lithesh.shop 5672
 
+```
 🌍 Verify if dispatch server's IP address is reachable
 ```
 ping -c 3 dispatch.lingaiah.online
