@@ -95,32 +95,58 @@ systemctl enable payment
 systemctl start payment
 ```
 
-# Trouble shoot commands:
-🌐 Check if payment  service is running
-```
-sudo systemctl status payment 
+# Trouble shooting commands:
 
+Payment Server running or not?
+```
+systemctl status payment
+```
+Payment port opened or not?
+```
+netstat -lntp
+```
+```
+netstat -lntp | grep 8080
+```
+Payment process is opened or not?
+```
+ps -ef | grep payment
+```
+Payment is able to connect MySQL db:
+```
+telnet rabbitmq.lithesh.shop 5672
 ```
 
-🌐 Check if payment  is listening on port 8080
+Payment is able to connect user:
 ```
-sudo netstat -lntp
-sudo netstat -lntp | grep 8080
-```
-
-📡 Test connectivity to the payment  server on port 8080
-```
-telnet payment.lingaiah.online 8080
+telnet user.lithesh.shop 8080
 ```
 
-🔍 Check if payment  process is running
+Payment is able to connect cart:
 ```
-ps -ef | grep payment 
+telnet cart.lithesh.shop 8080
 ```
 
 
-🌍 Verify if payment server's IP address is reachable
+
+Verify if Payment server's IP address is reachable
 ```
 ping -c 3 payment.lingaiah.online
 
 ````
+
+We already discussed in Linux basics section that applications should run as nonroot user.
+
+Add application User
+```
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+```
+Explanation:
+That command creates a system user named roboshop. Here’s what each part does:
+
+useradd \
+  --system                 # Create a system account (usually UID < 1000)
+  --home /app               # Set /app as the home directory
+  --shell /sbin/nologin     # Disable interactive shell login
+  --comment "roboshop system user"  # Description (GECOS field)
+  roboshop

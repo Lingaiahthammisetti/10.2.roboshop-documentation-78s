@@ -138,31 +138,30 @@ mongosh --host mongodb.lingaiah.online </app/schema/catalogue.js
 **NOTE: You need to update catalogue server ip address in frontend configuration. Configuration file is /etc/nginx/default.d/roboshop.conf**
 
 
-# Trouble shoot commands:
-🌐 Check if Catalogue service is running
-```
-sudo systemctl status catalogue
 
-```
+# Trouble shooting commands:
 
-🌐 Check if Catalogue is listening on port 8080
+Catalogue Server running or not?
 ```
-sudo netstat -lntp
-sudo netstat -lntp | grep 8080
+systemctl status catalogue
 ```
-
-📡 Test connectivity to the Catalogue server on port 8080
+Catalogue port opened or not?
 ```
-telnet catalogue.lingaiah.online 8080
+netstat -lntp
 ```
-
-🔍 Check if Catalogue process is running
+```
+netstat -lntp | grep 8080
+```
+Catalogue process is opened or not?
 ```
 ps -ef | grep catalogue
 ```
+Catalogue is able to connect MongoDB db:
+```
+telnet mongodb.lithesh.shop 27017
+```
 
-
-🌍 Verify if Catalogue server's IP address is reachable
+Verify if Catalogue server's IP address is reachable
 ```
 ping -c 3 catalogue.lingaiah.online
 

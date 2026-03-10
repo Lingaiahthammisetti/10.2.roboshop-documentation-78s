@@ -88,38 +88,47 @@ systemctl restart nginx
 
 ```
 
-# Trouble shoot commands:
-🌐 Check if Nginx service is running
-```
-sudo systemctl status nginx
+# Trouble shooting commands:
 
+Frontend Server running or not?
 ```
-
-🌐 Check if Nginx is listening on port 80
+systemctl status nginx
 ```
-sudo netstat -lntp
+Frontend port opened or not?
+```
+netstat -lntp
+```
+```
 sudo netstat -lntp | grep 80
 ```
 
-📡 Test connectivity to the Nginx server on port 80
-```
-telnet lingaiah.online 80
-```
-
-🔍 Check if Nginx process is running
+Frontend process is opened or not?
 ```
 ps -ef | grep nginx
 ```
+Frontend is able to connect backend servers - catalogue, user, cart, shipping, payment:
+```
+telnet catalogue.lithesh.shop 8080
+```
+```
+telnet user.lithesh.shop 8080
+```
+```
+telnet cat.lithesh.shop 8080
+```
+```
+telnet shipping.lithesh.shop 8080
+```
+```
+telnet payment.lithesh.shop 8080
+```
 
-
-🌍 Verify if Nginx server's IP address is reachable
+Verify if Nginx server's IP address is reachable
 ```
 ping -c 3 web.lingaiah.online
 
 ```
-
 # Additional Information:
-
 ```
 Download the zip file to /tmp
 curl -o /tmp/web.zip https://roboshop-builds.s3.amazonaws.com/web.zip

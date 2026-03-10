@@ -26,32 +26,27 @@ systemctl enable redis
 systemctl start redis
 ```
 
-# Trouble shoot commands:
-🌐 Check if redis service is running
-```
-sudo systemctl status redis
+# Trouble shooting commands:
 
+Redis Server running or not?
 ```
-
-🌐 Check if redis is listening on port 6379
-```
-sudo netstat -lntp
-sudo netstat -lntp | grep 6379
+systemctl status redis
 ```
 
-📡 Test connectivity to the redis server on port 6379
+Redis port opened or not?
 ```
-telnet redis.lingaiah.online 6379
+netstat -lntp
+```
+```
+netstat -lntp | grep 6379
 ```
 
-🔍 Check if redis process is running
+Redis  process is opened or not?
 ```
 ps -ef | grep redis
 ```
 
-
-🌍 Verify if redis server's IP address is reachable
+Verify if Redis server's IP address is reachable
 ```
 ping -c 3 redis.lingaiah.online
-
 ````

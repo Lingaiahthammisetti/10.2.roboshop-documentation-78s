@@ -21,3 +21,27 @@ Below is the communication between components and dependency. This dependency co
 * We can use NoSQL databases like MongoDB for storing the product information.
 * We can use Cache servers like Redis to access the data with lightening speed.
 * We can use MQ Servers like RabbitMQ, ActiveMQ, Kafka, etc for asynchronous communication.
+
+
+# component interaction each other:
+catalogue --> mongodb
+user    ---> redis
+user  -->   mongodb
+
+cart  --> redis
+cart  --> catalogue
+
+shipping  -->MySQL
+shipping  --> cart
+
+payment   --> RabbitMQ
+payment   --> cart
+payment   --> user
+
+dispatch --> RabbitMQ
+
+frontend  --> catalogue
+frontend -->  user
+frontend  --> cart
+frontend --> shipping
+frontend ---> payment

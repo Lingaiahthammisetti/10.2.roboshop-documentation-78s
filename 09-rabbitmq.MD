@@ -40,31 +40,27 @@ rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
 ```
 
 
-# Trouble shoot commands:
-🌐 Check if rabbitmq-server  service is running
-```
-sudo systemctl status rabbitmq-server
+# Trouble shooting commands:
 
+Redis Server running or not?
 ```
-
-🌐 Check if rabbitmq-server is listening on port 5672
-```
-sudo netstat -lntp
-sudo netstat -lntp | grep 5672
+systemctl status rabbitmq-server
 ```
 
-📡 Test connectivity to the rabbitmq-server server on port 5672
+Redis port opened or not?
 ```
-telnet rabbitmq.lingaiah.online 5672
+netstat -lntp
+```
+```
+netstat -lntp |  grep 5672
 ```
 
-🔍 Check if rabbitmq-server process is running
+Redis  process is opened or not?
 ```
 ps -ef | grep rabbitmq-server 
 ```
 
-🌍 Verify if rabbitmq-server server's IP address is reachable
+Verify if Redis server's IP address is reachable
 ```
 ping -c 3 rabbitmq.lingaiah.online
-
 ````

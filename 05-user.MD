@@ -123,33 +123,51 @@ mongosh --host mongodb.lingaiah.online </app/schema/user.js
 ```
 
 
-# Trouble shoot commands:
-🌐 Check if User service is running
-```
-sudo systemctl status user
+# Trouble shooting commands:
 
+User Server running or not?
 ```
-
-🌐 Check if User is listening on port 8080
+systemctl status user
 ```
-sudo netstat -lntp
-sudo netstat -lntp | grep 8080
+User port opened or not?
 ```
-
-📡 Test connectivity to the User server on port 8080
+netstat -lntp
 ```
-telnet user.lingaiah.online 8080
 ```
-
-🔍 Check if User process is running
+netstat -lntp | grep 8080
+```
+User process is opened or not?
 ```
 ps -ef | grep user
 ```
-
-
-🌍 Verify if User server's IP address is reachable
+User is able to connect MongoDB db:
+```
+telnet mongodb.lithesh.shop 27017
+```
+User is able to connect Redis db:
+```
+telnet redis.lithesh.shop 6379
+```
+Verify if User server's IP address is reachable
 ```
 ping -c 3 user.lingaiah.online
 
 ````
 
+
+
+We already discussed in Linux basics section that applications should run as nonroot user.
+
+Add application User
+```
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+```
+Explanation:
+That command creates a system user named roboshop. Here’s what each part does:
+
+useradd \
+  --system                 # Create a system account (usually UID < 1000)
+  --home /app               # Set /app as the home directory
+  --shell /sbin/nologin     # Disable interactive shell login
+  --comment "roboshop system user"  # Description (GECOS field)
+  roboshop

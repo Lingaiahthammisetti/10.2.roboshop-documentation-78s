@@ -94,34 +94,51 @@ systemctl start cart
 
 
 
-# Trouble shoot commands:
-🌐 Check if Cart service is running
-```
-sudo systemctl status cart
+# Trouble shooting commands:
 
+Cart Server running or not?
 ```
-
-🌐 Check if Cart is listening on port 8080
+systemctl status cart
 ```
-sudo netstat -lntp
-sudo netstat -lntp | grep 8080
+Cart port opened or not?
 ```
-
-📡 Test connectivity to the Cart server on port 8080
+netstat -lntp
 ```
-telnet cart.lingaiah.online 8080
 ```
-
-🔍 Check if Cart process is running
+netstat -lntp | grep 8080
+```
+Cart process is opened or not?
 ```
 ps -ef | grep cart
 ```
-
-
-🌍 Verify if Cart server's IP address is reachable
+Cart is able to connect Catalogue:
 ```
-ping -c 3 cart.lingaiah.online
+telnet catalogue.lithesh.shop 8080
+```
+Cart is able to connect Redis db:
+```
+telnet redis.lithesh.shop 6379
+```
+Verify if Cart server's IP address is reachable
+```
+ping -c 3 Cart.lingaiah.online
 
 ````
 
+
+We already discussed in Linux basics section that applications should run as nonroot user.
+
+Add application User
+```
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+```
+Explanation:
+That command creates a system user named roboshop. Here’s what each part does:
+
+useradd \
+  --system                 # Create a system account (usually UID < 1000)
+  --home /app               # Set /app as the home directory
+  --shell /sbin/nologin     # Disable interactive shell login
+  --comment "roboshop system user"  # Description (GECOS field)
+  roboshop
 

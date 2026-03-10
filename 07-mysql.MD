@@ -37,56 +37,61 @@ Ways to login into mysql-server and check databases.
 ```
 mysql -h mysql.lingaiah.online -uroot -pRoboShop@1
 ```
-
-```
-mysql -h localhost -uroot -pRoboShop@1
-```
-
 ```
 mysql
 ```
 
 
-Note: How to differentiate MySQL server vs MySQL client
-This is the MySQL server
+# Verification:
+We can check data by using client package called mysql.
+
+Usually command to connect mysql server is
 ```
-dnf install mysql-server -y
+mysql -h db.lithesh.shop -u root -pRoboShop@1
+```
+But if your client and server both are in a single server, you can simply issue.
+```
+mysql
+```
+Once you got mysql prompt, you can use below command to check schemas/databases exist.
+```
+show databases;
+```
+Once you are in particular schema, you can get the list of tables.
+```
+show tables;
+```
+You can get entries of a table using
+```
+select * from cities;
 ```
 
-This is the MySQL client
+From the system terminal (no login required)
 ```
-dnf install mysql -y
-
+mysql --version
 ```
-
-
-
-# Trouble shoot commands:
-🌐 Check if mysql service is running
+or
 ```
-sudo systemctl status mysqld
-
+mysql -v
+```
+```
+mysqld --version
 ```
 
-🌐 Check if mysql is listening on port 3306
+# Trouble shooting commands:
+
+MySQL Server running or not?
 ```
-sudo netstat -lntp
-sudo netstat -lntp | grep 3306
+systemctl status mysqld
 ```
 
-📡 Test connectivity to the mysql server on port 3306
+MySQL port opened or not?
 ```
-telnet mysql.lingaiah.online 3306
+netstat -lntp
 ```
 
-🔍 Check if mysql process is running
+MySQL process is opened or not?
 ```
 ps -ef | grep mysql
 ```
 
-
-🌍 Verify if mysql server's IP address is reachable
-```
-ping -c 3 mysql.lingaiah.online
-
-````

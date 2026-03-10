@@ -117,36 +117,49 @@ This service needs a restart because it is dependent on schema, After loading sc
 ```
 systemctl restart shipping
 ```
+# Trouble shooting commands:
 
-
-
-# Trouble shoot commands:
-🌐 Check if shipping service is running
+Shipping Server running or not?
 ```
-sudo systemctl status shipping
-
+systemctl status shipping
 ```
-
-🌐 Check if shipping is listening on port 8080
+Shipping port opened or not?
 ```
-sudo netstat -lntp
-sudo netstat -lntp | grep 8080
+netstat -lntp
 ```
-
-📡 Test connectivity to the shipping server on port 8080
 ```
-telnet shipping.lingaiah.online 8080
+netstat -lntp | grep 8080
 ```
-
-🔍 Check if shipping process is running
+Shipping process is opened or not?
 ```
 ps -ef | grep shipping
 ```
-
-
-🌍 Verify if shipping server's IP address is reachable
+shipping is able to connect MySQL db:
+```
+telnet db.lithesh.shop 3306
+```
+shipping is able to connect cart:
+```
+telnet cart.lithesh.shop 8080
+```
+Verify if shipping server's IP address is reachable
 ```
 ping -c 3 shipping.lingaiah.online
 
 ````
 
+We already discussed in Linux basics section that applications should run as nonroot user.
+
+Add application User
+```
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+```
+Explanation:
+That command creates a system user named roboshop. Here’s what each part does:
+
+useradd \
+  --system                 # Create a system account (usually UID < 1000)
+  --home /app               # Set /app as the home directory
+  --shell /sbin/nologin     # Disable interactive shell login
+  --comment "roboshop system user"  # Description (GECOS field)
+  roboshop

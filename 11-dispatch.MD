@@ -93,4 +93,18 @@ ping -c 3 dispatch.lingaiah.online
 ````
 
 
+We already discussed in Linux basics section that applications should run as nonroot user.
 
+Add application User
+```
+useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop
+```
+Explanation:
+That command creates a system user named roboshop. Here’s what each part does:
+
+useradd \
+  --system                 # Create a system account (usually UID < 1000)
+  --home /app               # Set /app as the home directory
+  --shell /sbin/nologin     # Disable interactive shell login
+  --comment "roboshop system user"  # Description (GECOS field)
+  roboshop
